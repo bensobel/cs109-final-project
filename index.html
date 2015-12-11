@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/cs109-students/Premium-Illiquidity">View on GitHub</a>
 
           <h1 id="project_title">CS109 Final Project: Premium Illiquidity</h1>
-          <h2 id="project_tagline">by Alon Galor, Ben Sobel, Calvin Willett, ZiZi Zhang</h2>
+          <h2 id="project_tagline">by Alon Galor, Ben Sobel, Calvin Willett, and ZiZi Zhang</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/cs109-students/Premium-Illiquidity/zipball/master">Download this project as a .zip file</a>
@@ -36,7 +36,11 @@
 <p>In this project, we sought to predict the price of an illiquid asset by applying machine-learning techniques to financial data.</p>
 <h3>
 <a id="data" class="anchor" href="#bdata" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Data</h3>
-<p>Our project relied on data from Bloomberg, FactSet, the Center for Research in Security Prices (CRSP), Thomson Reuters Datastream, the Security and Exchange Commission's EDGAR database, and Google search. We used these sources to construct dataframes for the daily prices of over 29,000 traded securities from 1986 to the present day, as well as separate dataframes to track the prices of the illiquid assets on which our project focused: high-density polyethylene (HDPE) and low-density polyethylene (LDPE).
+<p>Our project relied on data from Bloomberg, FactSet, the Center for Research in Security Prices (CRSP), Thomson Reuters Datastream, the Security and Exchange Commission's EDGAR database, and Google search. We used these sources to construct dataframes for the daily prices of over 29,000 traded securities from 1986 to the present day, as well as separate dataframes to track the prices of the illiquid assets on which our project focused: high-density polyethylene (HDPE) and low-density polyethylene (LDPE).<br><br>
+
+<em>Cleaning our data</em> was challenging. Many stocks did not trade every single day, and accordingly, our data would have a NaN values for each day it did not trade. Because of this, we had to fill in these values with a simple linear interpolator. For example, if a stock traded on Monday at 101, didn't trade on Tuesday, and traded on Wednesday at 103, we fill in the missing value on Tuesday at 102. The interpolation happens over trading days.
+
+Using our EDGAR data, we calculated how many times certain plastic-related keywords appeared in the companies' annual 10-K reports.
 <br><br>
 The iPython notebook that we used to load and clean our data is available <a href="https://github.com/cs109-students/Premium-Illiquidity/blob/master/Reading%20in%20Data.ipynb" target="_blank">here</a>.
 </p>
